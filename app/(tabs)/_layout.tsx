@@ -5,11 +5,27 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#3766f1',
-        headerStyle: { backgroundColor: '#262cd9' },
+        // Color configuration
+        tabBarActiveTintColor: '#32FC9D', // Vibrant green active tab
+        tabBarInactiveTintColor: '#94A3B8', // Muted slate gray inactive tab
+        
+        // Header styling
+        headerStyle: {
+          backgroundColor: '#0B131E', // Dark background matching theme
+        },
+        headerTitleStyle: {
+          color: '#F8FAFC', // Crisp white header text
+          fontWeight: '600',
+        },
+        headerTintColor: '#32FC9D', // Header back button & icons
         headerShadowVisible: false,
-        headerTintColor: '#262cd9',
-        tabBarStyle: { backgroundColor: '#262cd9' },
+
+        // Tab bar styling
+        tabBarStyle: {
+          backgroundColor: '#152232', // Slightly lighter dark surface for footer
+          borderTopColor: '#2A3C53', // Subtle separator border
+          elevation: 0,
+        },
       }}
     >
       <Tabs.Screen
@@ -18,7 +34,7 @@ export default function TabLayout() {
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={focused ? 'home-sharp' : 'home-outline'}
+              name={focused ? 'home' : 'home-outline'}
               color={color}
               size={24}
             />
@@ -51,22 +67,20 @@ export default function TabLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
-  name="teacher"
-  options={{
-    title: 'Teacher',
-    tabBarIcon: ({ color, focused }) => (
-      <Ionicons
-        name={focused ? 'clipboard' : 'clipboard-outline'}
-        color={color}
-        size={24}
+        name="teacher"
+        options={{
+          title: 'Teacher',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'clipboard' : 'clipboard-outline'}
+              color={color}
+              size={24}
+            />
+          ),
+        }}
       />
-    ),
-  }}
-/>
-
-       <Tabs.Screen
+      <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
@@ -76,11 +90,9 @@ export default function TabLayout() {
               color={color}
               size={24}
             />
-
           ),
         }}
       />
-
     </Tabs>
   );
 }
